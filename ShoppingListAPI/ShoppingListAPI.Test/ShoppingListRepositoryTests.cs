@@ -91,7 +91,7 @@ namespace ShoppingListAPI.Test
             var shoppingListRepository = new ShoppingListRepository(context);
             var item = new ShoppingItem()
             {
-                ItemName = "Flamin' Hot Cheetos",
+                ItemName = "Cheez It Puffs Spicy",
                 Quantity = 5
             };
 
