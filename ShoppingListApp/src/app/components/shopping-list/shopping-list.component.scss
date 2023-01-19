@@ -6,6 +6,12 @@
 
         .item-form {
             width: 200px;
+            padding-bottom: 5px;
+
+            .mat-error {
+                font-size: 10px;
+                white-space: nowrap;
+            }
         }
     }
 

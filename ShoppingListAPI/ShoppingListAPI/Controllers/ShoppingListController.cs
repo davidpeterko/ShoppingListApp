@@ -8,12 +8,10 @@ namespace ShoppingListAPI.Controllers
     [Route("/api/shoppinglist")]
     public class ShoppingListController : ControllerBase
     {
-        private readonly ILogger<ShoppingListController> _logger;
         private readonly IShoppingListService _shoppingListService;
 
-        public ShoppingListController(ILogger<ShoppingListController> logger, IShoppingListService shoppingListService)
+        public ShoppingListController(IShoppingListService shoppingListService)
         {
-            _logger = logger;
             _shoppingListService = shoppingListService;
         }
 

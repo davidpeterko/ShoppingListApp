@@ -60,9 +60,9 @@ namespace ShoppingListAPI.Test
 
             await shoppingListRepository.AddItem(item);
 
-            List<ShoppingItem> shoppingItems = context.ShoppingItems.ToList();
-            Assert.Single(shoppingItems);
-            Assert.Equal(1, shoppingItems.First().Id);
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Single(shoppingList);
+            Assert.Equal(1, shoppingList.First().Id);
         }
 
         [Fact] 
@@ -78,9 +78,9 @@ namespace ShoppingListAPI.Test
             await shoppingListRepository.AddItem(item);
             await shoppingListRepository.AddItem(item);
 
-            List<ShoppingItem> shoppingItems = context.ShoppingItems.ToList();
-            Assert.Single(shoppingItems);
-            Assert.Equal(1, shoppingItems.First().Id);
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Single(shoppingList);
+            Assert.Equal(1, shoppingList.First().Id);
         }
 
         [Fact]
@@ -94,22 +94,9 @@ namespace ShoppingListAPI.Test
 
             await shoppingListRepository.AddItem(item);
 
-            List<ShoppingItem> shoppingItems = context.ShoppingItems.ToList();
-            Assert.Single(shoppingItems);
-            Assert.Equal(1, shoppingItems.First().Id);
-        }
-
-        [Fact]
-        public async Task AddShoppingItem_NullName()
-        {
-            var shoppingListRepository = new ShoppingListRepository(context);
-            var item = new ShoppingItem()
-            {
-                Id = 1,
-                ItemName = null
-            };
-
-            Action act = async () => await shoppingListRepository.AddItem(item);
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Single(shoppingList);
+            Assert.Equal(1, shoppingList.First().Id);
         }
 
         [Fact]
@@ -125,8 +112,32 @@ namespace ShoppingListAPI.Test
             await shoppingListRepository.AddItem(item);
             await shoppingListRepository.RemoveItem(item);
 
-            List<ShoppingItem> shoppingItems = context.ShoppingItems.ToList();
-            Assert.Empty(shoppingItems);
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Empty(shoppingList);
+        }
+
+        [Fact]
+        public async Task RemoveShoppingItem_RemoveItemThatDoesntExist()
+        {
+            context.ShoppingItems.AddRange(
+                new ShoppingItem { Id = 1, ItemName = "Toilet Paper" },
+                new ShoppingItem { Id = 2, ItemName = "Oranges" },
+                new ShoppingItem { Id = 3, ItemName = "Garlic Powder" },
+                new ShoppingItem { Id = 4, ItemName = "AA Batteries" });
+            await context.SaveChangesAsync();
+
+
+            var shoppingListRepository = new ShoppingListRepository(context);
+            var item = new ShoppingItem()
+            {
+                Id = 1,
+                ItemName = "Flamin' Hot Cheetos"
+            };
+
+            await shoppingListRepository.RemoveItem(item);
+
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Equal(4, shoppingList.Count);
         }
     }
 }

@@ -10,6 +10,7 @@
         <div>
             <mat-form-field class="item-form">
                 <input matInput placeholder="Enter item name" type="text" maxlength="200" [(ngModel)]="shoppingItem">
+                <mat-hint class="mat-error" *ngIf="error">{{error}}</mat-hint>
             </mat-form-field>
         </div>
 

@@ -49,7 +49,7 @@ namespace ShoppingListAPI.Repositories
         {
             try
             {
-                var item = await _context.ShoppingItems.Where(x => x.Id == shoppingItem.Id).FirstOrDefaultAsync();
+                var item = await _context.ShoppingItems.Where(x => x.Id == shoppingItem.Id && x.ItemName == shoppingItem.ItemName).FirstOrDefaultAsync();
 
                 if (item != null)
                 {

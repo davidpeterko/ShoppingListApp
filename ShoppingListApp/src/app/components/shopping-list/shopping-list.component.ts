@@ -13,6 +13,7 @@ export class ShoppingListComponent {
   @Output() deleteShoppingItem = new EventEmitter<ShoppingItem[]>();
 
   shoppingItem = '';
+  error = '';
 
   constructor(private shoppingListService: ShoppingListService) { }
 
@@ -20,13 +21,19 @@ export class ShoppingListComponent {
   }
 
   addItem(item: any) {
-    let shoppingItem: ShoppingItem = { itemName: item };
-    this.shoppingListService
-      .addShoppingItem(shoppingItem)
-      .subscribe((shoppingList: ShoppingItem[]) => { 
-        this.addShoppingItem.emit(shoppingList);
-        this.shoppingItem = ''; 
-      });
+    if (this.shoppingList.filter(x => x.itemName.toLowerCase() == item.toLowerCase()).length > 0) {
+      this.error = item + ' already exists.';
+    }
+    else {
+      let shoppingItem: ShoppingItem = { itemName: item };
+      this.shoppingListService
+        .addShoppingItem(shoppingItem)
+        .subscribe((shoppingList: ShoppingItem[]) => { 
+          this.addShoppingItem.emit(shoppingList);
+          this.shoppingItem = '';
+          this.error = '';
+        });
+    }
   }
 
   deleteItem(item: ShoppingItem) {
