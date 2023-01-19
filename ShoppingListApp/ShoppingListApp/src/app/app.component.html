@@ -1,0 +1,8 @@
+<div class="container">
+    <div *ngIf="shoppingList">
+        <app-shopping-list 
+        [shoppingList]="shoppingList"
+        (addShoppingItem)="addShoppingItem($event)"
+        (deleteShoppingItem)="deleteShoppingItem($event)"></app-shopping-list>   
+    </div>
+</div>

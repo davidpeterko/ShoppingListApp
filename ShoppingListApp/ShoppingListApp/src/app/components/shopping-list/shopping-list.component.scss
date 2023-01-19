@@ -1,0 +1,31 @@
+.shopping-list-container {
+    margin: 50px auto;
+
+    .item-form-field {
+
+
+        .item-form {
+            width: 200px;
+        }
+    }
+
+    .list-container {
+
+        .list-item {
+            margin: 0 auto;
+            display: inline;
+
+            .shopping-item {
+                display: flex;
+                justify-content: space-between;
+            }
+
+            .delete-button {
+                background-color: grey;
+                color: white;
+                width: 15px;
+                height: 25px;
+            }
+        }
+    }
+}

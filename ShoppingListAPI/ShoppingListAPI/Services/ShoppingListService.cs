@@ -26,10 +26,5 @@ namespace ShoppingListAPI.Services
         {
             await _shoppingListRepository.RemoveItem(shoppingItem);
         }
-
-        public async Task UpdateItemQuantity(ShoppingItem shoppingItem)
-        {
-            await _shoppingListRepository.UpdateItemQuantity(shoppingItem);
-        }
     }
 }

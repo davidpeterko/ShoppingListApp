@@ -34,10 +34,10 @@ namespace ShoppingListAPI.Test
         public async Task GetShoppingList_WithData()
         {
             context.ShoppingItems.AddRange(
-                new ShoppingItem { Id = 1, ItemName = "Toilet Paper", Quantity = 1 },
-                new ShoppingItem { Id = 2, ItemName = "Oranges", Quantity = 3 },
-                new ShoppingItem { Id = 3, ItemName = "Garlic Powder", Quantity = 1 },
-                new ShoppingItem { Id = 4, ItemName = "AA Batteries", Quantity = 1 });
+                new ShoppingItem { Id = 1, ItemName = "Toilet Paper" },
+                new ShoppingItem { Id = 2, ItemName = "Oranges" },
+                new ShoppingItem { Id = 3, ItemName = "Garlic Powder" },
+                new ShoppingItem { Id = 4, ItemName = "AA Batteries" });
             await context.SaveChangesAsync();
 
             var shoppingListRepository = new ShoppingListRepository(context);
@@ -55,8 +55,7 @@ namespace ShoppingListAPI.Test
             var item = new ShoppingItem()
             {
                 Id = 1,
-                ItemName = "Flamin' Hot Cheetos",
-                Quantity = 5
+                ItemName = "Flamin' Hot Cheetos"
             };
 
             await shoppingListRepository.AddItem(item);
@@ -73,8 +72,7 @@ namespace ShoppingListAPI.Test
             var item = new ShoppingItem()
             {
                 Id = 1,
-                ItemName = "Flamin' Hot Cheetos",
-                Quantity = 5
+                ItemName = "Flamin' Hot Cheetos"
             };
 
             await shoppingListRepository.AddItem(item);
@@ -91,8 +89,7 @@ namespace ShoppingListAPI.Test
             var shoppingListRepository = new ShoppingListRepository(context);
             var item = new ShoppingItem()
             {
-                ItemName = "Cheez It Puffs Spicy",
-                Quantity = 5
+                ItemName = "Cheez It Puffs Spicy"
             };
 
             await shoppingListRepository.AddItem(item);
@@ -109,8 +106,7 @@ namespace ShoppingListAPI.Test
             var item = new ShoppingItem()
             {
                 Id = 1,
-                ItemName = null,
-                Quantity = 5
+                ItemName = null
             };
 
             Action act = async () => await shoppingListRepository.AddItem(item);

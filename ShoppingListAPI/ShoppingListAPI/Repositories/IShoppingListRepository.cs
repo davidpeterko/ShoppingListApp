@@ -9,7 +9,5 @@ namespace ShoppingListAPI.Repositories
         Task AddItem(ShoppingItem item);
 
         Task RemoveItem(ShoppingItem item);
-
-        Task UpdateItemQuantity(ShoppingItem shoppingItem);
     }
 }

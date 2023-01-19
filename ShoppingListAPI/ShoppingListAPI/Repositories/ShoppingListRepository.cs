@@ -62,23 +62,5 @@ namespace ShoppingListAPI.Repositories
                 throw new Exception(ex.ToString());
             }
         }
-
-        public async Task UpdateItemQuantity(ShoppingItem shoppingItem)
-        {
-            try
-            {
-                var item = await _context.ShoppingItems.Where(x => x.Id == shoppingItem.Id).FirstOrDefaultAsync();
-
-                if (item != null)
-                {
-                    item.Quantity = shoppingItem.Quantity;
-                    await _context.SaveChangesAsync();
-                }
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
-        }
     }
 }

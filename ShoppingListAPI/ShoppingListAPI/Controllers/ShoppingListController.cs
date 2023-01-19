@@ -31,11 +31,12 @@ namespace ShoppingListAPI.Controllers
         }
 
         [HttpPost("addItem")]
-        public async Task AddItem(ShoppingItem shoppingItem)
+        public async Task<List<ShoppingItem>> AddItem(ShoppingItem shoppingItem)
         {
             try
             {
                 await _shoppingListService.AddItem(shoppingItem);
+                return await _shoppingListService.GetShoppingList();
             }
             catch (Exception ex)
             {
@@ -44,24 +45,12 @@ namespace ShoppingListAPI.Controllers
         }
 
         [HttpPost("removeItem")]
-        public async Task RemoveItem(ShoppingItem shoppingItem)
+        public async Task<List<ShoppingItem>> RemoveItem(ShoppingItem shoppingItem)
         {
             try
             {
                 await _shoppingListService.RemoveItem(shoppingItem);
-            }
-            catch (Exception ex)
-            {
-                throw new Exception(ex.ToString());
-            }
-        }
-
-        [HttpPost("updateItem")]
-        public async Task UpdateItem(ShoppingItem shoppingItem)
-        {
-            try
-            {
-                await _shoppingListService.UpdateItemQuantity(shoppingItem);
+                return await _shoppingListService.GetShoppingList();
             }
             catch (Exception ex)
             {

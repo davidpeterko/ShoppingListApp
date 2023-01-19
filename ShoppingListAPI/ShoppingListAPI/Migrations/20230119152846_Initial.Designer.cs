@@ -11,7 +11,7 @@ using ShoppingListAPI.Data;
 namespace ShoppingListAPI.Migrations
 {
     [DbContext(typeof(ShoppingListContext))]
-    [Migration("20230119064618_Initial")]
+    [Migration("20230119152846_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
@@ -35,9 +35,6 @@ namespace ShoppingListAPI.Migrations
                     b.Property<string>("ItemName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
