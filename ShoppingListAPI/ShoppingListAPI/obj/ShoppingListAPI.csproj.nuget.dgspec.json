@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj": {}
+    "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj": {
+    "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
+        "projectUniqueName": "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
         "projectName": "ShoppingListAPI",
-        "projectPath": "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
+        "projectPath": "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
         "packagesPath": "C:\\Users\\david\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\obj\\",
+        "outputPath": "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

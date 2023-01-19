@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ORQoWZ2Pqk8Yp194E95Bu9FRq7h7/dmqLUOm32H5BhBoBK0LNK8/yFg0EgVpgHrVHAtyQo3Rwo2i2PwLvWk/iw==",
+  "dgSpecHash": "qehoHwG77NKqhu7qZhkPQVdDhIek9eK99k2btS5mBEtBCmcdvj/oBWMZ5vICd6d8awlSP0yya1o9N3xE+4Fj/w==",
   "success": true,
-  "projectFilePath": "C:\\Users\\david\\GitHub\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
+  "projectFilePath": "C:\\Users\\david\\OneDrive\\Documents\\Github\\ShoppingListApp\\ShoppingListAPI\\ShoppingListAPI\\ShoppingListAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\david\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\david\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
