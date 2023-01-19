@@ -72,7 +72,7 @@ namespace ShoppingListAPI.Repositories
                 if (item != null)
                 {
                     item.Quantity = shoppingItem.Quantity;
-                    await _context.SaveChangesAsync();  
+                    await _context.SaveChangesAsync();
                 }
             }
             catch (Exception ex)
