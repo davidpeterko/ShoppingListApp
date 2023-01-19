@@ -111,5 +111,22 @@ namespace ShoppingListAPI.Test
 
             Action act = async () => await shoppingListRepository.AddItem(item);
         }
+
+        [Fact]
+        public async Task RemoveShoppingItem_AddThenRemove()
+        {
+            var shoppingListRepository = new ShoppingListRepository(context);
+            var item = new ShoppingItem()
+            {
+                Id = 1,
+                ItemName = "Flamin' Hot Cheetos"
+            };
+
+            await shoppingListRepository.AddItem(item);
+            await shoppingListRepository.RemoveItem(item);
+
+            List<ShoppingItem> shoppingItems = context.ShoppingItems.ToList();
+            Assert.Empty(shoppingItems);
+        }
     }
 }
