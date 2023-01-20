@@ -9,6 +9,7 @@ import { ShoppingListService } from './service/shopping-list.service';
 })
 export class AppComponent {
   shoppingList: ShoppingItem[];
+  title = 'Shopping List';
 
   constructor(private shoppingListService: ShoppingListService) { }
 
