@@ -2,6 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using ShoppingListAPI.Data;
 using ShoppingListAPI.Models;
 using ShoppingListAPI.Repositories;
+using System;
 
 namespace ShoppingListAPI.Test
 {
@@ -19,6 +20,8 @@ namespace ShoppingListAPI.Test
 
             context = new ShoppingListContext(dbOptions.Options);
         }
+
+        #region GetShoppingList tests
 
         [Fact]
         public async Task GetShoppingList_Empty()
@@ -47,6 +50,10 @@ namespace ShoppingListAPI.Test
             Assert.NotNull(shoppingList);
             Assert.Equal(4, shoppingList.Count);
         }
+
+        #endregion
+
+        #region AddItem tests
 
         [Fact]
         public async Task AddShoppingItem_SingleItem()
@@ -84,12 +91,12 @@ namespace ShoppingListAPI.Test
         }
 
         [Fact]
-        public async Task AddShoppingItem_NoId()
+        public async Task AddShoppingItem_NoIdAutoIncrement()
         {
             var shoppingListRepository = new ShoppingListRepository(context);
             var item = new ShoppingItem()
             {
-                ItemName = "Cheez It Puffs Spicy"
+                ItemName = "Cheez It Puffs White Cheddar"
             };
 
             await shoppingListRepository.AddItem(item);
@@ -97,6 +104,35 @@ namespace ShoppingListAPI.Test
             List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
             Assert.Single(shoppingList);
             Assert.Equal(1, shoppingList.First().Id);
+            Assert.Equal("Cheez It Puffs White Cheddar", shoppingList.First().ItemName);
+        }
+
+        [Fact]
+        public async Task AddShoppingItem_Null()
+        {
+            var shoppingListRepository = new ShoppingListRepository(context);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await shoppingListRepository.AddItem(null));
+        }
+
+        #endregion
+
+        #region RemoveItem tests
+
+        [Fact]
+        public async Task RemoveShoppingItem_RemoveFromEmpty()
+        {
+            var shoppingListRepository = new ShoppingListRepository(context);
+            var item = new ShoppingItem()
+            {
+                Id = 8,
+                ItemName = "Garlic Powder"
+            };
+
+            await shoppingListRepository.RemoveItem(item);
+
+            List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
+            Assert.Empty(shoppingList);
         }
 
         [Fact]
@@ -139,5 +175,15 @@ namespace ShoppingListAPI.Test
             List<ShoppingItem> shoppingList = context.ShoppingItems.ToList();
             Assert.Equal(4, shoppingList.Count);
         }
+
+        [Fact]
+        public async Task RemoveShoppingItem_Null()
+        {
+            var shoppingListRepository = new ShoppingListRepository(context);
+
+            await Assert.ThrowsAsync<InvalidOperationException>(async () => await shoppingListRepository.RemoveItem(null));
+        }
+
+        #endregion
     }
 }

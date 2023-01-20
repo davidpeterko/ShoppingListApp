@@ -39,9 +39,9 @@ namespace ShoppingListAPI.Repositories
                     await _context.SaveChangesAsync();
                 }
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                throw new Exception(ex.ToString());
+                throw new InvalidOperationException(ex.ToString());
             }
         }
 
@@ -57,9 +57,9 @@ namespace ShoppingListAPI.Repositories
                     await _context.SaveChangesAsync();
                 }
             }
-            catch (Exception ex)
+            catch (InvalidOperationException ex)
             {
-                throw new Exception(ex.ToString());
+                throw new InvalidOperationException(ex.ToString());
             }
         }
     }
