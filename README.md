@@ -24,13 +24,13 @@ The solution uses a code first migration. It already contains an initial migrati
 
 # Running the application
 
-The ShoppingListAPI applicationUrl is set in the launchsettings file and runs at the follow url. The angular application also has a reference to this within the environment.ts file for referencing within the angular service class.
+The ShoppingListAPI applicationUrl is set in the properties/launchsettings file and runs at the follow url. The angular application also has a reference to this within the environment.ts file for referencing within the angular service class.
 
 > http://localhost:5157
 
-Build the solution and run the API. A swagger doc will launch as well showing the endpoint definitions.
+Build the solution and run the API (I used visual studio over vscode for the backend). A swagger doc will launch as well showing the endpoint definitions.
 
-Open up the angular application within VSCode. If node_modules has not been updated; run
+Open up the angular app in VSCode. If node_modules has not been updated; run
 
 > npm install
 
