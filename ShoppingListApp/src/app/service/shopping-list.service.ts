@@ -20,7 +20,7 @@ export class ShoppingListService {
     return this.http.post<ShoppingItem[]>(this.apiUrl + '/api/shoppinglist/addItem', shoppingItem);
   }
 
-  public deleteShoppingItem(shoppingItem: ShoppingItem) : Observable<ShoppingItem[]> {
+  public removeShoppingItem(shoppingItem: ShoppingItem) : Observable<ShoppingItem[]> {
     return this.http.post<ShoppingItem[]>(this.apiUrl + '/api/shoppinglist/removeItem', shoppingItem);
   }
 }

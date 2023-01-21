@@ -29,19 +29,19 @@ describe('AppComponent', () => {
     httpController = TestBed.inject(HttpTestingController);
   });
 
-  it('should create the app', () => {
+  it('AppComponent AppCreated', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`should have as title 'Shopping List'`, () => {
+  it(`AppComponent Title 'Shopping List'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
     expect(app.title).toEqual('Shopping List');
   });
 
-  it('should render title', () => {
+  it('AppComponent TitleRender', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;

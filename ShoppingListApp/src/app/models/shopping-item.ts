@@ -1,4 +1,4 @@
 export class ShoppingItem {
     id?: number;
-    itemName: string;
+    itemName?: string | undefined | null;
 }

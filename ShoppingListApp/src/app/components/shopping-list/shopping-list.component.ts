@@ -21,7 +21,7 @@ export class ShoppingListComponent {
   }
 
   addItem(item: any) {
-    if (this.shoppingList.filter(x => x.itemName.toLowerCase() == item.toLowerCase()).length > 0) {
+    if (this.shoppingList.filter(x => x.itemName?.toLowerCase() == item.toLowerCase()).length > 0) {
       this.error = item + ' already exists.';
     }
     else {
@@ -38,7 +38,7 @@ export class ShoppingListComponent {
 
   deleteItem(item: ShoppingItem) {
     this.shoppingListService
-      .deleteShoppingItem(item)
+      .removeShoppingItem(item)
       .subscribe((shoppingList: ShoppingItem[]) => this.deleteShoppingItem.emit(shoppingList));
   }
 }
