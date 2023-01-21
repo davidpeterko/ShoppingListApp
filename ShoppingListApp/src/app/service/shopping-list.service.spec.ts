@@ -21,6 +21,10 @@ describe('Shopping List Service', () => {
     httpController = TestBed.inject(HttpTestingController);
   });
 
+  afterEach(() => {
+    httpController.verify();
+  })
+
   it('Service created', () => {
     expect(shoppingListService).toBeDefined();
   }); 
@@ -41,5 +45,21 @@ describe('Shopping List Service', () => {
     req.flush(testData);
   });
 
+  it('Shopping List Api AddItem', () => {
+    let inputData: ShoppingItem = { id: 1, itemName: 'Chicken Nuggets'};
+
+    let testData: ShoppingItem[] = [
+      { id: 1, itemName: 'Chicken Nuggets' }
+    ];
+    
+    shoppingListService
+      .addShoppingItem(inputData)
+      .subscribe( (result) => expect(result).toEqual(testData));
+
+    const req = httpController.expectOne(environment.apiUrl + '/api/shoppinglist/addItem');
+    expect(req.request.method).toEqual('POST');
+
+    req.flush(testData);
+  });
 
 });
