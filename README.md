@@ -41,3 +41,11 @@ After dependencies have been updated, you can run the application with
 It should be default hosted at
 
 > http://localhost:4200
+
+# Unit Tests
+
+There are unit tests for the API in the ShoppingListAPI.Test project that you can run. It tests the repository functions that interact with the database and uses an inmemory db.
+
+There are also unit tests for the front end Angular app using Karma. There is a spec test file for both components (AppComponent, ShoppingListComponent) and also the ShoppingListService. You will need the karma CLI installed to run these tests. Karma and jasmine itself should be installed when you run the initial npm install.
+
+> npm install -g karma-cli
