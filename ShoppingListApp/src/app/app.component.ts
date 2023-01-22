@@ -21,11 +21,7 @@ export class AppComponent {
       });
   }
 
-  addShoppingItem(shoppingList: ShoppingItem[]) {
-    this.shoppingList = shoppingList;
-  }
-
-  deleteShoppingItem(shoppingList: ShoppingItem[]) {
+  updateShoppingList(shoppingList: ShoppingItem[]) {
     this.shoppingList = shoppingList;
   }
 }

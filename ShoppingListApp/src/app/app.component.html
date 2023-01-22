@@ -6,7 +6,7 @@
     <div *ngIf="shoppingList">
         <app-shopping-list 
         [shoppingList]="shoppingList"
-        (addShoppingItem)="addShoppingItem($event)"
-        (deleteShoppingItem)="deleteShoppingItem($event)"></app-shopping-list>   
+        (addShoppingItem)="updateShoppingList($event)"
+        (deleteShoppingItem)="updateShoppingList($event)"></app-shopping-list>   
     </div>
 </div>
