@@ -1,25 +1,29 @@
 <div class="shopping-list-container">
     <div class="item-form-field">
-        <h4>Add shopping item:</h4>
+        <h4 id="add-item-label">Add shopping item:</h4>
 
         <div>
             <mat-form-field class="item-form">
-                <input matInput placeholder="Enter item name" type="text" maxlength="200" [(ngModel)]="shoppingItem">
-                <mat-hint class="mat-error" *ngIf="error">{{error}}</mat-hint>
+                <input matInput id="add-item-input" placeholder="Enter item name" type="text" maxlength="200" [(ngModel)]="shoppingItem">
+                <mat-hint id="input-error" class="mat-error" *ngIf="error">{{error}}</mat-hint>
             </mat-form-field>
         </div>
 
-        <button mat-raised-button class="add-button" (click)="addItem(shoppingItem)" [disabled]="!shoppingItem">
+        <button mat-raised-button id="add-item-button" class="add-button" (click)="addItem(shoppingItem)" [disabled]="!shoppingItem">
             Add Item
         </button>
     </div>
 
-    <div class="list-container">
+    <div class="empty-list" *ngIf="shoppingList?.length === 0">
+        No items in list.
+    </div>
+
+    <div class="list-container" *ngIf="shoppingList">
         <mat-list>
             <mat-list-item *ngFor="let item of shoppingList" class="list-item">
                 <div class="shopping-item">
                     <span>{{item.itemName}}</span>
-                    <button mat-raised-button class="delete-button" (click)="deleteItem(item)">
+                    <button mat-raised-button id="delete-item-button" class="delete-button" (click)="deleteItem(item)">
                         Delete
                     </button>
                 </div>

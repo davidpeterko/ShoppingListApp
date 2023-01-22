@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { ShoppingListService } from './service/shopping-list.service';
@@ -9,6 +9,7 @@ describe('AppComponent', () => {
   let shoppingListService: ShoppingListService;
   let httpClient: HttpClient;
   let httpController: HttpTestingController;
+  let fixture: ComponentFixture<AppComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -24,25 +25,18 @@ describe('AppComponent', () => {
       ],
     }).compileComponents();
 
+    fixture = TestBed.createComponent(AppComponent);
     shoppingListService = TestBed.inject(ShoppingListService);
     httpClient = TestBed.inject(HttpClient);
     httpController = TestBed.inject(HttpTestingController);
   });
 
-  it('AppComponent AppCreated', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('AppComponent ComponentCreated', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  it(`AppComponent Title 'Shopping List'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Shopping List');
-  });
-
   it('AppComponent TitleRender', () => {
-    const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
     expect(compiled.querySelector('.container h2')?.textContent).toContain('Shopping List');

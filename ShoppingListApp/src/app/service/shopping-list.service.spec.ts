@@ -23,11 +23,15 @@ describe('ShoppingListService', () => {
 
   afterEach(() => {
     httpController.verify();
-  })
+  });
 
   it('ShoppingListApi ServiceIsCreated', () => {
     expect(shoppingListService).toBeDefined();
   }); 
+
+  it('ShoppingListApi HttpClientIsCreated', () => {
+    expect(httpClient).toBeDefined();
+  });
 
   it('ShoppingListApi GetShoppingList', () => {
     let testData: ShoppingItem[] = [
